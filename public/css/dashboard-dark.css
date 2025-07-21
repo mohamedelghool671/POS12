@@ -1,0 +1,79 @@
+body,
+.content-wrapper,
+#page-top,
+.sidebar,
+.bg-white,
+.card,
+.modal-content {
+    background-color: #1F1D2B !important;
+    color: #ffffff !important;
+}
+
+.text-dark {
+    color: #ffffff !important;
+}
+
+.sidebar .nav-item .nav-link,
+.navbar,
+.card-header,
+.card-body,
+.modal-header,
+.modal-footer,
+.dropdown-menu {
+    background-color: #252836 !important;
+    color: #ffffff !important;
+}
+
+.card {
+    border: none !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, span, a,
+.card .text-xs,
+.card .h5 {
+    color: #ffffff !important;
+}
+
+.sidebar .nav-item .nav-link i {
+    color: #6C5DD3 !important;
+}
+
+.badge, .btn {
+    background-color: #6C5DD3 !important;
+    border: none;
+    color: #ffffff !important;
+}
+
+.list-group-item {
+    background-color: #1F1D2B !important;
+    color: #fff !important;
+    border-color: #333 !important;
+}
+
+.sidebar .nav-item.active .nav-link {
+    background-color: #111827 !important; /* خلفية غامقة */
+    color: #ffffff !important;
+}
+
+.sidebar .nav-item.active .nav-link i {
+    color: #6C5DD3 !important; /* لو حابب تخلي الأيقونة بنفسجي زي الصورة */
+}
+
+.bg-white,
+.table,
+.table-striped,
+.table thead,
+.modal-content,
+.dropdown-menu,
+.card-footer {
+    background-color: #252836 !important;
+    color: #ffffff !important;
+}
+
+.table td,
+.table th {
+    color: #ffffff !important;
+    border-color: #333 !important;
+}
+
