@@ -1,16 +1,12 @@
 @extends('admin.layouts.master')
 
 @section('content')
-     <!-- Begin Page Content -->
      <div class="container-fluid">
-        <!-- DataTales Example -->
         <div class="card shadow mb-4 col-5 offset-3">
             <div class="card-header py-3">
-
                     <div class="">
                         <h6 class="m-0 font-weight-bold text-dark">{{ __('messages.change_password') }}...</h6>
                     </div>
-
             </div>
             <div class="card-body">
                 <form action="{{route ('admin.changePassword')}}" method="POST">
@@ -35,7 +31,6 @@
                             <small class="invalid-feedback">{{$message}}</small>
                         @enderror
                     </div>
-
                     <div class="row">
                         <div class="col-6">
                             <input type="submit" value="{{ __('messages.update') }}" class="btn btn-primary w-100">
@@ -48,7 +43,6 @@
                 </form>
             </div>
         </div>
-
     </div>
     <!-- /.container-fluid -->
 @endsection
