@@ -8,7 +8,6 @@ use App\Models\Rating;
 use App\Models\Report;
 use App\Models\Product;
 use App\Models\Category;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Interfaces\UserDashboardRepositoryInterface;
 
@@ -19,7 +18,8 @@ class UserDashboardRepository implements UserDashboardRepositoryInterface
         $category = Category::get();
         $products = Product::select('products.*','categories.name as category_name')
                             ->leftJoin('categories','products.category_id','categories.id')
-                            ->get();
+                            ->groupBy('products.id')
+                            ->paginate(6);
         $customerCount = User::where('role','user')->count();
         $rating = Rating::select('ratings.count','users.name','users.nickname','users.profile','ratings.created_at')
                             ->leftJoin('users','ratings.user_id','users.id')

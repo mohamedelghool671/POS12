@@ -472,4 +472,22 @@ return [
     'total_amount_must_be_number' => 'المبلغ الإجمالي يجب أن يكون رقم',
     'total_amount_invalid' => 'المبلغ الإجمالي غير صحيح',
     'reject_reason' => 'سبب الرفض',
+    'vodafone_cash_phone_invalid' => 'رقم فودافون كاش غير صحيح. يجب أن يبدأ بـ 010 أو 011 أو 012 أو 015 ويكون 11 رقم.',
+
+    // رسائل السلة
+    'added_success' => 'تمت الإضافة',
+    'product_added_to_cart' => 'تم إضافة المنتج للسلة بنجاح',
+    'delete_success' => 'تم الحذف',
+    'product_removed_from_cart' => 'تم حذف المنتج من السلة بنجاح',
+    'add_failed' => 'فشل الإضافة',
+    'add_failed_message' => 'حدث خطأ أثناء إضافة المنتج للسلة',
+    'delete_failed' => 'فشل الحذف',
+    'delete_failed_message' => 'حدث خطأ أثناء حذف المنتج من السلة',
+    'ok' => 'موافق',
+    'sweet_ok' => 'موافق',
+    'vodafone_cash' => 'فودافون كاش',
+    'instapay' => 'انستا باي',
+    'visa_card' => 'فيزا كارد',
+    'paypal' => 'بايبال',
+    
 ];

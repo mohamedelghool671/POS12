@@ -9,8 +9,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
-require __DIR__.'/auth.php';
 require_once __DIR__.'/admin.php';
+require __DIR__.'/auth.php';
 require_once __DIR__.'/user.php';
 
 // $user->token

@@ -72,20 +72,49 @@ class ShopController extends Controller
 
     public function addToCart(Request $request)
     {
-        $data = [
-            'user_id' => Auth::user()->id,
-            'product_id' => $request->productID,
-            'qty' => $request->qty,
-        ];
-        $this->shopService->addToCart($data);
-        return back();
+        try {
+            $data = [
+                'user_id' => Auth::user()->id,
+                'product_id' => $request->productID,
+                'qty' => $request->qty,
+            ];
+            $this->shopService->addToCart($data);
+            Alert::success(
+                __('messages.added_success'),
+                __('messages.product_added_to_cart')
+            );
+            return back();
+        } catch (\Exception $e) {
+            Alert::error(
+                __('messages.add_failed'),
+                __('messages.add_failed_message')
+            );
+            return back();
+        }
     }
 
     public function removeCart(Request $request)
     {
-        $this->shopService->removeCart($request->cart_id);
-        return back();
+        try {
+            $this->shopService->removeCart($request->cartId);
+    
+            return response()->json([
+                'status' => 200,
+                'message' => 'success'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 500,
+                'message' => 'error',
+                'alert' => [
+                    'icon' => 'error',
+                    'title' => __('messages.delete_failed'),
+                    'text' => __('messages.delete_failed_message'),
+                ]
+            ]);
+        }
     }
+    
 
     public function order(Request $request)
     {
@@ -129,7 +158,7 @@ class ShopController extends Controller
 
             // التحقق من البيانات الأساسية
             if (!$request->name || !$request->phone || !$request->paymentMethod) {
-                Alert::error('خطأ', 'يرجى ملء جميع الحقول المطلوبة');
+                Alert::error(__('messages.order_failed_title'), __('messages.order_failed_message'));
                 return back();
             }
 
@@ -137,16 +166,16 @@ class ShopController extends Controller
             $result = $this->shopService->orderProduct($data);
 
             if ($result) {
-                Alert::success('نجح الطلب', 'تم إرسال طلبك بنجاح');
+                Alert::success(__('messages.order_success_title'), __('messages.order_success_message'));
                 return redirect()->route('shopList');
             } else {
-                Alert::error('فشل الطلب', 'حدث خطأ أثناء إرسال الطلب');
+                Alert::error(__('messages.order_failed_title'), __('messages.order_failed_message'));
                 return back();
             }
 
         } catch (\Exception $e) {
             Log::error('Payment Error: ' . $e->getMessage());
-            Alert::error('خطأ', 'حدث خطأ غير متوقع');
+            Alert::error(__('messages.error'), __('messages.something_went_wrong'));
             return back();
         }
     }

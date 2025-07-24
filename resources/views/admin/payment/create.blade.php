@@ -22,15 +22,10 @@
                                 <select name="paymentType" id=""
                                     class="form-control @error('paymentType') is-invalid @enderror">
                                     <option value="">{{ __('messages.choose_payment') }}</option>
-                                    <option value="KBZPay">KBZ Pay</option>
-                                    <option value="KBZ">KBZ Account</option>
-                                    <option value="WPay">Wave Pay</option>
-                                    <option value="YOMA">YOMA Account</option>
-                                    <option value="AYA">AYA Account</option>
-                                    <option value="AYAPay">AYA Pay</option>
-                                    <option value="CB">CB Account</option>
-                                    <option value="CBPay">CB Pay</option>
-                                    <option value="APay">A Pay</option>
+                                    <option value="VodafoneCash">{{ __('messages.vodafone_cash') }}</option>
+                                    <option value="InstaPay">{{ __('messages.instapay') }}</option>
+                                    <option value="VisaCard">{{ __('messages.visa_card') }}</option>
+                                    <option value="PayPal">{{ __('messages.paypal') }}</option>
                                 </select>
                             </div>
                             <div class="mb-3">

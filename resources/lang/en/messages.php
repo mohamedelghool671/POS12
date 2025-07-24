@@ -465,4 +465,20 @@ return [
     'payment_method_required' => 'Please select a payment method',
     'processing' => 'Processing',
     'reject_reason' => 'Rejection Reason',
+
+    // Cart messages
+    'added_success' => 'Added',
+    'product_added_to_cart' => 'Product added to cart successfully',
+    'delete_success' => 'Deleted',
+    'product_removed_from_cart' => 'Item removed from cart successfully',
+    'add_failed' => 'Add Failed',
+    'add_failed_message' => 'An error occurred while adding the product to the cart',
+    'delete_failed' => 'Delete Failed',
+    'delete_failed_message' => 'An error occurred while removing the item from the cart',
+    'sweet_ok' => 'OK',
+    'vodafone_cash' => 'Vodafone Cash',
+    'instapay' => 'InstaPay',
+    'visa_card' => 'Visa Card',
+    'paypal' => 'PayPal',
+    'vodafone_cash_phone_invalid' => 'Invalid Vodafone Cash number. It must start with 010, 011, 012, or 015 and be 11 digits.',
 ];

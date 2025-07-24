@@ -29,7 +29,7 @@ Route::group(['prefix' => 'user' , 'middleware' => ['auth','user']], function(){
 //cart
     Route::get('cart',[ShopController::class, 'cart'])->name('cart');
     Route::post('addToCart',[ShopController::class, 'addToCart'])->name('addToCart');
-    Route::get('remove/cart',[ShopController::class, 'removeCart'])->name('removeCart');
+    Route::delete('remove/cart',[ShopController::class, 'removeCart'])->name('removeCart');
 
 //order
     Route::get('order',[ShopController::class, 'order'])->name('order');

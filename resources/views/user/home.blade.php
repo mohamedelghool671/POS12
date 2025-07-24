@@ -282,3 +282,39 @@
     </div>
     <!-- Tastimonial End --> --}}
 @endsection
+
+@section('js-section')
+<script>
+$(document).ready(function(){
+    // منع الإرسال الافتراضي وتحويله لـ AJAX
+    $(document).on('submit', 'form[action*="addToCart"]', function(e){
+        e.preventDefault();
+        var form = $(this);
+        var data = form.serialize();
+        $.ajax({
+            url: form.attr('action'),
+            method: 'POST',
+            data: data,
+            success: function(response){
+                Swal.fire({
+                    icon: 'success',
+                    title: '{{ __("messages.added_success") }}',
+                    text: '{{ __("messages.product_added_to_cart") }}',
+                    confirmButtonText: '{{ __("messages.sweet_ok") }}',
+                    timer: 1500,
+                    showConfirmButton: true
+                });
+            },
+            error: function(xhr){
+                Swal.fire({
+                    icon: 'error',
+                    title: '{{ __("messages.add_failed") }}',
+                    text: '{{ __("messages.add_failed_message") }}',
+                    confirmButtonText: '{{ __("messages.sweet_ok") }}',
+                });
+            }
+        });
+    });
+});
+</script>
+@endsection

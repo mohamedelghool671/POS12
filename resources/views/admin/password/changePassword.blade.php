@@ -13,7 +13,7 @@
 
             </div>
             <div class="card-body">
-                <form action="{{route ('changePassword')}}" method="POST">
+                <form action="{{route ('admin.changePassword')}}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label ">{{ __('messages.old_password') }}</label>

@@ -11,7 +11,7 @@ class ProductRepository implements ProductRepositoryInterface
     {
         return Product::with(['category', 'comments', 'ratings', 'discounts', 'carts'])
             ->orderBy('id')
-            ->paginate(3);
+            ->paginate(6);
     }
 
     public function findById($id)
@@ -41,7 +41,7 @@ class ProductRepository implements ProductRepositoryInterface
             ->when($searchKey, function($query) use ($searchKey) {
                 $query->whereAny(['name','price','count'],'like','%'.$searchKey.'%');
             })
-            ->paginate(3);
+            ->paginate(6);
     }
 
     public function getDetails($id)

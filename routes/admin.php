@@ -27,7 +27,7 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['auth','admin']], function(
     //password
     Route::prefix('password')->group(function(){
         Route::get('change', [AuthController::class, 'changePasswordPage'])->name('passwordChange');
-        Route::post('change', [AuthController::class, 'changePassword'])->name('changePassword');
+        Route::post('change', [AuthController::class, 'changePassword'])->name('admin.changePassword');
         Route::get('reset', [AuthController::class, 'resetPasswordPage'])->name('resetPasswordPage');
         Route::post('resetPassword', [AuthController::class, 'resetPassword'])->name('resetPassword');
 

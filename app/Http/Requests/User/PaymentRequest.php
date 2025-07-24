@@ -21,14 +21,25 @@ class PaymentRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
-            'paymentMethod' => 'required|exists:payments,id',
+            'paymentMethod' => 'required',
             'paySlipImage' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'orderCode' => 'required|string',
             'totalAmount' => 'required|numeric|min:0',
         ];
+
+        // فاليديشن خاص بفودافون كاش
+        if ($this->input('paymentMethod') === 'VodafoneCash') {
+            $rules['phone'] = [
+                'required',
+                'regex:/^(010|011|012|015)[0-9]{8}$/',
+            ];
+        }
+        // يمكنك إضافة فاليديشن مخصص لأي وسيلة دفع أخرى هنا
+
+        return $rules;
     }
 
     /**
@@ -45,8 +56,8 @@ class PaymentRequest extends FormRequest
             'phone.required' => __('messages.phone_required'),
             'phone.string' => __('messages.phone_must_be_string'),
             'phone.max' => __('messages.phone_too_long'),
+            'phone.regex' => __('messages.vodafone_cash_phone_invalid'),
             'paymentMethod.required' => __('messages.payment_method_required'),
-            'paymentMethod.exists' => __('messages.payment_method_invalid'),
             'paySlipImage.image' => __('messages.pay_slip_must_be_image'),
             'paySlipImage.mimes' => __('messages.pay_slip_invalid_format'),
             'paySlipImage.max' => __('messages.pay_slip_too_large'),

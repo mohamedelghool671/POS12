@@ -9,7 +9,7 @@ class CategoryRepository implements CategoryRepositoryInterface
 {
     public function getAll()
     {
-        return Category::with('products')->orderBy('id')->paginate(3);
+        return Category::with('products')->orderBy('id')->paginate(6);
     }
 
     public function findById($id)

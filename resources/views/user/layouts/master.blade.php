@@ -30,6 +30,8 @@
     <!-- Template Stylesheet -->
     <link href="{{asset ('customer/css/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset ('customer/css/custom.css')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <style>
         /* إخفاء النص الافتراضي "No file chosen" */
         input[type="file"] {
@@ -210,7 +212,7 @@
                         <p>{{ __('messages.email') }}: florisygn@gmail.com</p>
                         <p>{{ __('messages.phone') }}: +0124567 8910</p>
                         <p>{{ __('messages.payment_accepted') }}</p>
-                        <img src="img/payment.png" class="img-fluid" alt="">
+                        {{-- <img src="{{ asset('user/img/payment.png')}}" class="img-fluid" alt=""> --}}
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ use App\Interfaces\PaymentRepositoryInterface;
 
 class PaymentRepository implements PaymentRepositoryInterface
 {
-    public function paginate($perPage = 3)
+    public function paginate($perPage = 10)
     {
         return Payment::paginate($perPage);
     }

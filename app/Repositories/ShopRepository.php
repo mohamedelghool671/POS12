@@ -34,7 +34,7 @@ class ShopRepository implements ShopRepositoryInterface
         if($category_id != null){
             $products->where('category_id',$category_id);
         }
-        $products = $products->paginate(9);
+        $products = $products->paginate(6);
         $categories = Category::all();
         return compact('products', 'categories');
     }
